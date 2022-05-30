@@ -75,10 +75,15 @@ while play_again == "":
 
     chosen_num = random.randint(1, 100)
 
+    # Adjust balance
+    # If the random # in between 1 and 5
+    # User gets a unicorn (add $4 to balance)
     if 1 <= chosen_num <= 5:
         chosen = "unicorn"
         balance += 4
 
+    # If the random # is between 6 and 36
+    # user gets a donkey (subtract $1 from balance)
     elif 6 >= chosen_num <= 36:
         chosen = "donkey"
         balance -= 1
@@ -89,7 +94,10 @@ while play_again == "":
 
         else:
             chosen = "zebra"
-            balance -= 0.5
+        balance -= 0.5
+
+    print("You got a {}. Your balance is "
+          "${:.2f}".format(chosen, balance))
 
     if balance < 1:
         play_again = "xxx"
@@ -97,3 +105,6 @@ while play_again == "":
     else:
         play_again = input("Press Enter to play again "
                            "or 'xxx' to quit")
+
+print()
+print("Final balance", balance)
